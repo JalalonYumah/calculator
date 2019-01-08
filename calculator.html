@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title> basic calculator</title>
+</head>
+<body>
+	<center><h1> 
+	<input type="number" placeholder="0" id="ndisplay">
+
+	<br>
+	<br>
+	
+	<button onclick="thenumber(this)">7</button>
+	<button onclick="thenumber(this)">8</button>
+	<button onclick="thenumber(this)">9</button>
+
+	<button id="ndivide" onclick="dodivide()">/</button>
+	<br>
+
+	<button onclick="thenumber(this)">4</button>
+	<button onclick="thenumber(this)">5</button>
+	<button onclick="thenumber(this)">6</button>
+
+	<button id="nmultiply" onclick="domultiply()">*</button>
+	<br>
+
+	<button onclick="thenumber(this)">1</button>
+	<button onclick="thenumber(this)">2</button>
+	<button onclick="thenumber(this)">3</button>
+
+	<button id="nminus" onclick="dominus()">-</button>
+	<br>
+	<button onclick="thenumber(this)">0</button>
+	<button onclick="thenumber(this)">.</button>
+
+	<button id="nplus" onclick="doadd()">+</button>
+	<button id="nequals" onclick="result()">=</button>
+
+	<script type="text/javascript">
+		let n = document.getElementById('ndisplay');
+		let numberHolder;
+		let operator;
+
+		function thenumber(e){
+			n.value += e.innerHTML;
+		}
+
+		function doadd(){
+			operator = "+";
+			numberHolder = parseInt(n.value);
+			n.value = "";
+		}
+
+		function dominus(){
+			operator = "-";
+			numberHolder = parseInt(n.value);
+			n.value = "";
+		}
+
+		function domultiply(){
+			operator = "*";
+			numberHolder = parseInt(n.value);
+			n.value = "";
+		}
+
+		function dodivide(){
+			operator = "/";
+			numberHolder = parseInt(n.value);
+			n.value = "";
+		}
+
+		function result(){
+			switch (operator){
+				case "+":
+						n.value = numberHolder + parseInt(n.value);
+						break;
+				case "-":
+						n.value = numberHolder - parseInt(n.value);
+						break;
+				case "*":
+						n.value = numberHolder * parseInt(n.value);
+						break;
+				case "/":
+						n.value = numberHolder / parseInt(n.value);
+						break;
+				default:
+						console.log('no operator');
+						break;
+			}
+
+		}
+	</script>
+
+</center></h1>
+</body>
+</html>
